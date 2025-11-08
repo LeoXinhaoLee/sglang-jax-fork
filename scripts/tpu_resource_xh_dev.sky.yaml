@@ -10,7 +10,7 @@ resources:
 setup: |
   if [ -d "sglang-jax-fork" ]; then pip uninstall -y sgl-jax || true && rm -rf sglang-jax-fork; fi
   git clone https://github.com/LeoXinhaoLee/sglang-jax-fork.git
-  cd sglang-jax && git fetch origin $REF:$REF && git checkout $REF
+  cd sglang-jax-fork && git fetch origin $REF:$REF && git checkout $REF
   uv venv --python 3.12
   source .venv/bin/activate
   uv pip install -e "python[all]"
