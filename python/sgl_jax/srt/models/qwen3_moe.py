@@ -193,6 +193,8 @@ class QWen3MoeDecoderLayer(nnx.Module):
                 input_size=config.hidden_size,
                 num_experts=num_experts,
             )
+            # print(mesh)  # @xinhao debug: (dp, tp, ep)
+            # print(config.ep_size)  # default: 1
             with mesh:
                 if config.ep_size > 1:
                     expert_parallel_size = mesh.shape.get("data", 1) * mesh.shape.get("tensor", 1)
